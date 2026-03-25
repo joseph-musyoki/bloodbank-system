@@ -12,35 +12,7 @@ enters through public/index.php, which bootstraps the router and
 dispatches to the appropriate controller. No framework is used; all core
 components are hand-built.
 
-+--------------------------------------------------------------------+
-| bloodbank/                                                         |
-|                                                                    |
-| ├── public/ ← Web root (point Apache/Nginx here)                   |
-|                                                                    |
-| │ ├── index.php ← Front controller                                 |
-|                                                                    |
-| │ ├── .htaccess ← Rewrite rules                                    |
-|                                                                    |
-| │ └── assets/css,js/ ← Static assets                               |
-|                                                                    |
-| ├── app/                                                           |
-|                                                                    |
-| │ ├── controllers/ ← Auth, Donor, Staff, Hospital                  |
-|                                                                    |
-| │ ├── models/ ← DonorModel, InventoryModel, etc.                   |
-|                                                                    |
-| │ ├── middleware/ ← Auth.php, DonorEligibility, BloodCompatibility |
-|                                                                    |
-| │ └── views/ ← PHP templates per portal                            |
-|                                                                    |
-| ├── core/ ← Database.php, Router.php                               |
-|                                                                    |
-| ├── config/database.php ← DB credentials                           |
-|                                                                    |
-| ├── routes/web.php ← All route definitions                         |
-|                                                                    |
-| └── database/ ← schema.sql, seed scripts                           |
-+--------------------------------------------------------------------+
+
 
 **1.2 Three User Portals**
 
