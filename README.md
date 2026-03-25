@@ -16,9 +16,8 @@ components are hand-built.
 
 **1.2 Three User Portals**
 
-  ---------------------------------------------------------------------
   **Portal**       **Role**    **Key Functions**
-  ---------------- ----------- ----------------------------------------
+  
   Donor Portal     donor       Dashboard, donation history, eligibility
                                check, appointment booking
 
@@ -27,13 +26,13 @@ components are hand-built.
 
   Hospital Portal  hospital    Blood requests, compatibility view,
                                request tracking, live stock view
-  ---------------------------------------------------------------------
+ 
 
 **2. System Requirements**
 
-  ---------------------------------------------------------------------
+ 
   **Requirement**      **Minimum**          **Recommended**
-  -------------------- -------------------- ---------------------------
+  
   PHP                  8.0                  8.2+
 
   MySQL                8.0                  8.0+
@@ -53,33 +52,33 @@ components are hand-built.
 
 **Step 1 --- Clone / place project**
 
-+--------------------------------------------------------------------+
-| \# Place the bloodbank/ folder in your web root, e.g.:             |
-|                                                                    |
-| cp -r bloodbank/ /var/www/html/bloodbank                           |
-|                                                                    |
-| \# Or run from any directory using PHP\'s built-in server:         |
-|                                                                    |
-| cd bloodbank/public                                                |
-|                                                                    |
-| php -S localhost:8000                                              |
-+--------------------------------------------------------------------+
+
+ \# Place the bloodbank/ folder in your web root, e.g.:             
+                                                                    
+ cp -r bloodbank/ /var/www/html/bloodbank                           
+|                                                                    
+| \# Or run from any directory using PHP\'s built-in server:         
+|                                                                    
+| cd bloodbank/public                                                
+|                                                                    
+| php -S localhost:8000                                              
+
 
 **Step 2 --- Create the database**
 
-+--------------------------------------------------------------------+
+
 | mysql -u root -p                                                   |
 |                                                                    |
 | mysql\> SOURCE /path/to/bloodbank/database/schema.sql;             |
 |                                                                    |
 | mysql\> exit                                                       |
-+--------------------------------------------------------------------+
+
 
 **Step 3 --- Configure credentials**
 
 Edit config/database.php to match your MySQL setup:
 
-+--------------------------------------------------------------------+
++
 | return \[                                                          |
 |                                                                    |
 | \'host\' =\> \'localhost\',                                        |
@@ -91,13 +90,13 @@ Edit config/database.php to match your MySQL setup:
 | \'password\' =\> \'your_password\',                                |
 |                                                                    |
 | \];                                                                |
-+--------------------------------------------------------------------+
+
 
 **Step 4 --- Seed demo users**
 
 Run the seeder to create/reset demo accounts with password: password
 
-+--------------------------------------------------------------------+
+
 | php database/seed_users.php                                        |
 |                                                                    |
 | \# Output:                                                         |
@@ -107,7 +106,7 @@ Run the seeder to create/reset demo accounts with password: password
 | \# ✓ donor: donor@test.ke → password: password                     |
 |                                                                    |
 | \# ✓ hospital: hospital@test.ke → password: password               |
-+--------------------------------------------------------------------+
+
 
 **Step 5 --- Configure web server**
 
