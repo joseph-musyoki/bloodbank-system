@@ -1,0 +1,1 @@
+<?php require BASE_PATH . '/app/views/partials/footer.php'; ?>

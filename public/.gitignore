@@ -1,0 +1,18 @@
+# Ignore environment files
+.env
+
+# Ignore local database config (if you ever add secrets)
+app/config/database.php
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Vendor (if you add Composer later)
+vendor/
+
+# Node (if you add frontend tools later)
+node_modules/
