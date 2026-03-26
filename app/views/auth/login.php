@@ -5,7 +5,7 @@
   <title>Sign In — BloodBank System</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/BLOODBANK-SYSTEM/public/assets/css/main.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/main.css">
 </head>
 <body>
 <?php if (!empty($_SESSION['flash'])): ?>
@@ -27,6 +27,6 @@
     <a href="<?= BASE_URL ?>/register" class="btn btn--ghost btn--full">Register as Donor</a>
   </div>
 </div>
-<script src="/BLOODBANK-SYSTEM/public/assets/js/main.js"></script>
+<script src="<?= BASE_URL ?>/assets/js/main.js"></script>
 </body>
 </html>

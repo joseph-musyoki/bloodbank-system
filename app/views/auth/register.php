@@ -5,7 +5,7 @@
 <title>Register as Donor - BloodBankKE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/BLOODBANK-SYSTEM/public/assets/css/main.css">
+<link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/main.css">
 </head>
 <body class="auth-page register-page">
 <div class="register-wrap">
@@ -111,6 +111,6 @@
     </div>
   </form>
 </div>
-<script src="/BLOODBANK-SYSTEM/public/assets/js/main.js"></script>
+<script src="<?= BASE_URL ?>/assets/js/main.js"></script>
 </body>
 </html>

@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/BLOODBANK-SYSTEM/public/assets/css/main.css">
+  <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/main.css">
 </head>
 <body class="<?= $bodyClass ?? '' ?>" data-role="<?= htmlspecialchars(Auth::role() ?? 'guest') ?>">
 

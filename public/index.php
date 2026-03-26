@@ -8,7 +8,12 @@ declare(strict_types=1);
 
 define('BASE_PATH', dirname(__DIR__));
 define('APP_VERSION', '1.0.0');
-define('BASE_URL', '/BLOODBANK-SYSTEM');
+
+// Base URL can be overridden by environment (Render) or computed for local subdirectory deployments
+$scriptDir = dirname($_SERVER['SCRIPT_NAME'] ?? '');
+$computedBase = rtrim(str_replace('/public', '', $scriptDir), '/');
+$computedBase = $computedBase === '/' ? '' : $computedBase;
+define('BASE_URL', getenv('BASE_URL') !== false ? getenv('BASE_URL') : $computedBase);
 
 // ── Bootstrap ────────────────────────────────────────────────
 session_start();
