@@ -76,6 +76,7 @@ CREATE TABLE donations (
 CREATE TABLE blood_units (
     id INT AUTO_INCREMENT PRIMARY KEY,
     donation_id INT NOT NULL,
+    unit_code VARCHAR(50) UNIQUE NOT NULL,
     blood_type ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-') NOT NULL,
     component ENUM('whole_blood', 'plasma', 'platelets', 'red_cells') DEFAULT 'whole_blood',
     volume_ml INT NOT NULL,

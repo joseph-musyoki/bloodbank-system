@@ -35,7 +35,7 @@ class StaffController
         $alerts     = $this->inventory->generateAlerts();
         $nearExpiry = $this->inventory->getNearExpiry(14);
         $pageTitle  = 'Blood Inventory';
-        require BASE_PATH . '/app/views/staff/inventory.php';
+        require BASE_PATH . '/app/views/staff/Inventory.php';
     }
 
     public function donors(array $p = []): void
@@ -70,7 +70,7 @@ class StaffController
         $components= BloodCompatibility::components();
         $pageTitle = 'Record Donation';
         $errors    = [];
-        require BASE_PATH . '/app/views/staff/record_donation.php';
+        require BASE_PATH . '/app/views/staff/record_donorship.php';
     }
 
     public function storeDonation(array $p = []): void

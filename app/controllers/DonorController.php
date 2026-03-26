@@ -19,7 +19,7 @@ class DonorController
         $yearCount   = $this->donors->countDonationsThisYear($donor['id']);
         $eligibility = DonorEligibility::check($donor, $lastDonation ?: null);
         $pageTitle   = 'My Dashboard';
-        require BASE_PATH . '/app/views/donor/dashboard.php';
+        require BASE_PATH . '/app/views/donor/Dashboard.php';
     }
 
     public function appointments(array $p = []): void

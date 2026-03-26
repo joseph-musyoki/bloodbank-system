@@ -28,7 +28,7 @@ class HospitalController
         $stock      = $this->inventory->getLiveStock();
         $alerts     = $this->inventory->generateAlerts();
         $pageTitle  = 'Hospital Dashboard';
-        require BASE_PATH . '/app/views/hospital/dashboard.php';
+        require BASE_PATH . '/app/views/hospital/Dashboard.php';
     }
 
     public function showRequestForm(array $p = []): void
@@ -79,7 +79,7 @@ class HospitalController
         if (!$request || $request['hospital_id'] !== $hospital['id']) { http_response_code(403); require BASE_PATH.'/app/views/shared/403.php'; return; }
         $issuedUnits = $this->requests->getIssuedUnits($request['id']);
         $pageTitle   = 'Request #'.$request['id'];
-        require BASE_PATH . '/app/views/hospital/request_status.php';
+        require BASE_PATH . '/app/views/hospital/request_detail.php';
     }
 
     public function cancelRequest(array $p = []): void
