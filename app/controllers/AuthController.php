@@ -24,10 +24,11 @@ class AuthController
             Auth::login($user);
             $intended = $_SESSION['intended'] ?? null;
             unset($_SESSION['intended']);
-            header('Location: ' . ($intended ?? $this->dashboardFor($user['role'])));
+            $destination = $intended ?? ($this->dashboardFor($user['role']));
+            header('Location: ' . (str_starts_with($destination, 'http') ? $destination : (BASE_URL . $destination)));
         } else {
             $_SESSION['auth_error'] = 'Invalid email or password.';
-            header('Location: /login');
+            header('Location: ' . BASE_URL . '/login');
         }
         exit;
     }
@@ -89,7 +90,7 @@ class AuthController
     public function logout(array $p = []): void
     {
         Auth::logout();
-        header('Location: /login');
+        header('Location: ' . BASE_URL . '/login');
         exit;
     }
 

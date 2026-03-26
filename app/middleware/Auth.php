@@ -21,8 +21,14 @@ class Auth
         return isset($_SESSION['user_id']) ? (int)$_SESSION['user_id'] : null;
     }
 
-    public static function requireLogin(string $redirectTo = '/login'): void
+    public static function requireLogin(string $redirectTo = null): void
     {
+        if ($redirectTo === null) {
+            $redirectTo = BASE_URL . '/login';
+        } elseif (!str_starts_with($redirectTo, 'http')) {
+            $redirectTo = BASE_URL . $redirectTo;
+        }
+
         if (!self::check()) {
             $_SESSION['intended'] = $_SERVER['REQUEST_URI'];
             header('Location: ' . $redirectTo);
