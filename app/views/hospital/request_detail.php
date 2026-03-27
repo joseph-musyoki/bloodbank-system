@@ -24,7 +24,7 @@ $statusColor = $statusColors[$request['status']] ?? 'secondary';
     <?php if ($request['status'] === 'pending'): ?>
         <form method="POST" action="<?= BASE_URL ?>/hospital/requests/<?= $request['id'] ?>/cancel"
               onsubmit="return confirm('Are you sure you want to cancel this request?')">
-            <input type="hidden" name="csrf_token"
+            <input type="hidden" name="_token"
                    value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
             <button type="submit" class="btn btn-danger">Cancel Request</button>
         </form>

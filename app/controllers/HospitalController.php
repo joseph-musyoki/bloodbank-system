@@ -93,4 +93,19 @@ class HospitalController
         $_SESSION['flash']=['type'=>'info','message'=>'Request cancelled.'];
         header('Location: /hospital/requests'); exit;
     }
+
+    public function stock(array $p = []): void
+    {
+        Auth::requireRole('hospital');
+        $hospital = $this->getHospital();
+        $stock = $this->inventory->getLiveStock();
+        $inventory = [];
+        foreach ($stock as $row) {
+            $bt = $row['blood_type'];
+            if (!isset($inventory[$bt])) $inventory[$bt] = ['total' => 0];
+            $inventory[$bt]['total'] += $row['available'];
+        }
+        $pageTitle = 'Blood Availability';
+        require BASE_PATH . '/app/views/hospital/stock_view.php';
+    }
 }

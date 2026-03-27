@@ -25,7 +25,7 @@
     </div>
     <div class="card-body">
         <form method="POST" action="<?= BASE_URL ?>/hospital/request" class="form" id="requestForm">
-            <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
+            <input type="hidden" name="_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
 
             <div class="form-grid">
                 <!-- Blood Type -->

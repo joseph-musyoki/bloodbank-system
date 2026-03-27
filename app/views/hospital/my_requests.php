@@ -102,7 +102,7 @@
                                 <?php if ($req['status'] === 'pending'): ?>
                                     <form method="POST" action="<?= BASE_URL ?>/hospital/requests/<?= $req['id'] ?>/cancel"
                                           onsubmit="return confirm('Cancel this request?')" class="inline-form">
-                                        <input type="hidden" name="csrf_token"
+                                        <input type="hidden" name="_token"
                                                value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
                                         <button type="submit" class="btn btn-xs btn-danger" title="Cancel">
                                             Cancel

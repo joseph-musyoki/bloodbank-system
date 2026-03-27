@@ -38,3 +38,4 @@ $router->post('/hospital/request',            [HospitalController::class, 'submi
 $router->get('/hospital/requests',            [HospitalController::class, 'myRequests']);
 $router->get('/hospital/requests/:id',        [HospitalController::class, 'requestStatus']);
 $router->post('/hospital/requests/:id/cancel',[HospitalController::class, 'cancelRequest']);
+$router->get('/hospital/stock',               [HospitalController::class, 'stock']);
