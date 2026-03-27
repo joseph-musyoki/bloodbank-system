@@ -6,11 +6,25 @@ class Router
     public function get(string $path, array|callable $handler): void  { $this->add('GET',  $path, $handler); }
     public function post(string $path, array|callable $handler): void { $this->add('POST', $path, $handler); }
 
-    private function add(string $method, string $path, array|callable $handler): void
+/*    private function add(string $method, string $path, array|callable $handler): void
     {
         $pattern = preg_replace('#:([a-zA-Z_]+)#', '(?P<$1>[^/]+)', $path);
         $this->routes[] = ['method' => $method, 'pattern' => "#^{$pattern}$#", 'handler' => $handler];
-    }
+    }*/
+    private function add(string $method, string $path, array|callable $handler): void
+{
+    // Restrict :id to numbers only
+    $pattern = preg_replace('#:id#', '(?P<id>\d+)', $path);
+
+    // Handle other parameters normally
+    $pattern = preg_replace('#:([a-zA-Z_]+)#', '(?P<$1>[^/]+)', $pattern);
+
+    $this->routes[] = [
+        'method' => $method,
+        'pattern' => "#^{$pattern}$#",
+        'handler' => $handler
+    ];
+}    
 
     public function dispatch(string $method, string $uri): void
     {

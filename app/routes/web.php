@@ -33,7 +33,7 @@ $router->post('/staff/requests/:id/fulfill',  [StaffController::class, 'fulfillR
 
 // Hospital Portal
 $router->get('/hospital/dashboard',           [HospitalController::class, 'dashboard']);
-$router->get('/hospital/request',             [HospitalController::class, 'showRequestForm']);
+$router->get('/hospital/request/new',             [HospitalController::class, 'showRequestForm']);
 $router->post('/hospital/request',            [HospitalController::class, 'submitRequest']);
 $router->get('/hospital/requests',            [HospitalController::class, 'myRequests']);
 $router->get('/hospital/requests/:id',        [HospitalController::class, 'requestStatus']);
