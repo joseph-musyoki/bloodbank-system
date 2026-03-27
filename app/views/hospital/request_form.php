@@ -28,6 +28,24 @@
             <input type="hidden" name="_token" value="<?= htmlspecialchars($_SESSION['csrf_token'] ?? '') ?>">
 
             <div class="form-grid">
+                <!-- Patient Name -->
+                <div class="form-group">
+                    <label class="form-label required" for="patient_name">Patient Name</label>
+                    <input type="text" id="patient_name" name="patient_name"
+                           class="form-control" required
+                           placeholder="e.g. John Doe"
+                           value="<?= htmlspecialchars($_POST['patient_name'] ?? '') ?>">
+                </div>
+
+                <!-- Patient Age -->
+                <div class="form-group">
+                    <label class="form-label" for="patient_age">Patient Age</label>
+                    <input type="number" id="patient_age" name="patient_age"
+                           class="form-control" min="0" max="120"
+                           placeholder="e.g. 45 (optional)"
+                           value="<?= htmlspecialchars($_POST['patient_age'] ?? '') ?>">
+                </div>
+
                 <!-- Blood Type -->
                 <div class="form-group">
                     <label class="form-label required" for="blood_type">Blood Type Required</label>
@@ -54,14 +72,14 @@
 
                 <!-- Component Type -->
                 <div class="form-group">
-                    <label class="form-label required" for="component_type">Component Type</label>
-                    <select id="component_type" name="component_type" class="form-select" required>
+                    <label class="form-label required" for="component">Component Type</label>
+                    <select id="component" name="component" class="form-select" required>
                         <option value="">— Select component —</option>
-                        <option value="whole_blood"   <?= (($_POST['component_type'] ?? '') === 'whole_blood')   ? 'selected' : '' ?>>Whole Blood</option>
-                        <option value="packed_rbc"    <?= (($_POST['component_type'] ?? '') === 'packed_rbc')    ? 'selected' : '' ?>>Packed Red Blood Cells (pRBC)</option>
-                        <option value="plasma"        <?= (($_POST['component_type'] ?? '') === 'plasma')        ? 'selected' : '' ?>>Fresh Frozen Plasma (FFP)</option>
-                        <option value="platelets"     <?= (($_POST['component_type'] ?? '') === 'platelets')     ? 'selected' : '' ?>>Platelets</option>
-                        <option value="cryoprecipitate" <?= (($_POST['component_type'] ?? '') === 'cryoprecipitate') ? 'selected' : '' ?>>Cryoprecipitate</option>
+                        <option value="whole_blood"   <?= (($_POST['component'] ?? '') === 'whole_blood')   ? 'selected' : '' ?>>Whole Blood</option>
+                        <option value="packed_rbc"    <?= (($_POST['component'] ?? '') === 'packed_rbc')    ? 'selected' : '' ?>>Packed Red Blood Cells (pRBC)</option>
+                        <option value="plasma"        <?= (($_POST['component'] ?? '') === 'plasma')        ? 'selected' : '' ?>>Fresh Frozen Plasma (FFP)</option>
+                        <option value="platelets"     <?= (($_POST['component'] ?? '') === 'platelets')     ? 'selected' : '' ?>>Platelets</option>
+                        <option value="cryoprecipitate" <?= (($_POST['component'] ?? '') === 'cryoprecipitate') ? 'selected' : '' ?>>Cryoprecipitate</option>
                     </select>
                 </div>
 
@@ -77,30 +95,20 @@
                     <span class="form-hint urgency-hint" id="urgencyHint"></span>
                 </div>
 
-                <!-- Patient ID -->
+                <!-- Required By Date -->
                 <div class="form-group">
-                    <label class="form-label" for="patient_id">Patient ID / Reference</label>
-                    <input type="text" id="patient_id" name="patient_id"
+                    <label class="form-label" for="required_by">Required By Date/Time</label>
+                    <input type="datetime-local" id="required_by" name="required_by"
                            class="form-control"
-                           placeholder="e.g. PAT-2025-001 (optional)"
-                           value="<?= htmlspecialchars($_POST['patient_id'] ?? '') ?>">
-                </div>
-
-                <!-- Department -->
-                <div class="form-group">
-                    <label class="form-label required" for="department">Requesting Department</label>
-                    <input type="text" id="department" name="department"
-                           class="form-control" required
-                           placeholder="e.g. ICU, Surgery, Maternity"
-                           value="<?= htmlspecialchars($_POST['department'] ?? '') ?>">
+                           value="<?= htmlspecialchars($_POST['required_by'] ?? '') ?>">
                 </div>
             </div>
 
             <!-- Clinical Notes -->
             <div class="form-group">
-                <label class="form-label" for="notes">Clinical Notes / Diagnosis</label>
-                <textarea id="notes" name="notes" class="form-control" rows="3"
-                          placeholder="Optional clinical context for this request..."><?= htmlspecialchars($_POST['notes'] ?? '') ?></textarea>
+                <label class="form-label" for="clinical_notes">Clinical Notes / Diagnosis</label>
+                <textarea id="clinical_notes" name="clinical_notes" class="form-control" rows="3"
+                          placeholder="Optional clinical context for this request..."><?= htmlspecialchars($_POST['clinical_notes'] ?? '') ?></textarea>
             </div>
 
             <!-- Compatibility info box -->
