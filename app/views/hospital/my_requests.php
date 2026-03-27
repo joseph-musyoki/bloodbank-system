@@ -57,7 +57,7 @@
                     <th>Component</th>
                     <th>Units</th>
                     <th>Urgency</th>
-                    <th>Department</th>
+                    <th>Notes</th>
                     <th>Submitted</th>
                     <th>Status</th>
                     <th>Actions</th>
@@ -76,14 +76,14 @@
                                 <?= htmlspecialchars($req['blood_type']) ?>
                             </span>
                         </td>
-                        <td><?= htmlspecialchars(str_replace('_', ' ', ucfirst($req['component_type']))) ?></td>
+                        <td><?= htmlspecialchars(str_replace('_', ' ', ucfirst($req['component'] ?? ''))) ?></td>
                         <td class="text-center"><strong><?= $req['units_requested'] ?></strong></td>
                         <td>
                             <span class="badge badge-urgency-<?= $req['urgency'] ?>">
                                 <?= ucfirst($req['urgency']) ?>
                             </span>
                         </td>
-                        <td><?= htmlspecialchars($req['department']) ?></td>
+                        <td><?= htmlspecialchars($req['clinical_notes'] ?? '—') ?></td>
                         <td class="text-muted">
                             <time datetime="<?= $req['created_at'] ?>">
                                 <?= date('d M Y, H:i', strtotime($req['created_at'])) ?>
