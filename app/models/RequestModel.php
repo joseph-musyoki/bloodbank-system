@@ -17,7 +17,7 @@ class RequestModel
     public function all(int $limit = 100): array
     {
         return $this->db->query(
-            "SELECT r.*, u.name as hospital_name, h.county as hospital_county
+            "SELECT r.id, r.hospital_id, r.patient_name, r.patient_age, r.blood_type, r.component, r.units_requested, r.units_fulfilled, r.urgency, r.clinical_notes, r.required_by, r.status, r.created_at, u.name as hospital_name, h.county as hospital_county
              FROM requests r
              JOIN hospitals h ON h.id=r.hospital_id
              JOIN users u ON u.id=h.user_id

@@ -97,16 +97,19 @@ CREATE TABLE requests (
     blood_type ENUM('A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-') NOT NULL,
     component ENUM('whole_blood', 'plasma', 'platelets', 'red_cells') DEFAULT 'whole_blood',
     units_requested INT NOT NULL,
+    units_fulfilled INT DEFAULT 0,
     urgency ENUM('routine', 'urgent', 'emergency') DEFAULT 'routine',
     clinical_notes TEXT,
     required_by DATE NULL,
     status ENUM('pending', 'fulfilled', 'cancelled') DEFAULT 'pending',
     fulfilled_at TIMESTAMP NULL,
     fulfilled_by INT NULL,
+    staff_id INT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (hospital_id) REFERENCES hospitals(id) ON DELETE CASCADE,
-    FOREIGN KEY (fulfilled_by) REFERENCES users(id) ON DELETE SET NULL
+    FOREIGN KEY (fulfilled_by) REFERENCES users(id) ON DELETE SET NULL,
+    FOREIGN KEY (staff_id) REFERENCES users(id) ON DELETE SET NULL
 );
 
 CREATE TABLE inventory (
